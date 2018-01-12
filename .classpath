@@ -184,5 +184,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/xwork-core-2.1.6.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ant-1.7.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/java-unrar-0.3.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json.jar"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>

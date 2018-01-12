@@ -221,6 +221,17 @@
 	</tag>	
 	
 	<tag>
+		<name>ipAddress</name>
+		<tag-class>cn.com.educate.app.taglib.CatchIpAddress</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
 		<name>deptToName</name>
 		<tag-class>cn.com.educate.app.taglib.DeptToNameTag</tag-class>
 		<body-content>empty</body-content>

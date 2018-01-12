@@ -5,4 +5,9 @@
 	<PDF2SWF_PATH>D:\\Program Files\\SWFTools\\pdf2swf.exe</PDF2SWF_PATH>
 	<OPENOFFICE_HOME>c:\\Program Files\\OpenOffice.org 3</OPENOFFICE_HOME>
 	<OPENOFFICE_PORT>8100</OPENOFFICE_PORT>
+	<CATCH_IP>
+		<![CDATA[
+		http://api.map.baidu.com/location/ip?ak=F454f8a5efe5e577997931cc01de3974&ip=
+		]]>
+	</CATCH_IP>
 </configuration>

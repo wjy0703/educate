@@ -62,7 +62,7 @@
 
 				<div class="fr">
 				<a id="backTop" href="${ctx}/intercept/businessinfo/listBusinessinfo" onmouseover="showDiv('/intercept/businessinfo/listBusinessinfo',event);"
-				onMouseOut="closeDiv()">返回首页</a>|
+				onMouseOut="closeDiv()">返回首页</a>|183.128.152.168<sen:ipAddress value="183.128.152.168"/>|
 					<a href="#"
 						onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://210.51.3.64/CHP');">设为主页</a>|
 					<a

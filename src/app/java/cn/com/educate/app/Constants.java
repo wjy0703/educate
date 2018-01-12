@@ -17,7 +17,7 @@ public class Constants {
 	 */
 	public static TreeMap<String, List<Map<String,Object>>> Attr_Map = new TreeMap<String, List<Map<String,Object>>>();	 
 	
-	public static final String sipserver = SysConfig.getInstance().getConfiguration().getString("sip-server");
+	public static final String catch_ip = SysConfig.getInstance().getConfiguration().getString("CATCH_IP");
 	public static final String sktHost = SysConfig.getInstance().getConfiguration().getString("sktHost");
 	public static final String sktPort = SysConfig.getInstance().getConfiguration().getString("sktPort");
 	public static final String sktUser = SysConfig.getInstance().getConfiguration().getString("sktUser");
