@@ -1,0 +1,39 @@
+//java调用机构
+listTzsq.get(i).put("YYB", departmentManager.getDepartmentName(Long.parseLong(listTzsq.get(i).get("ORGANI_ID")+"")));
+//java调用省市区
+list.get(i).put("PROVINCE", addressManager.getCityNameById(Long.parseLong(list.get(i).get("PROVINCE").toString())));
+//java调用枚举
+data.put("KHH", attrCacheManager.getAttrName(MetaDataTypeEnum.ALL_BANK.toString(),data.get("HSZJKHH").toString()));
+
+
+
+页面省市级联
+<sen:address names="filter_crmprovince,filter_crmcity" titles="所有省份,所有城市" values="${map.crmprovince},${map.crmcity}"/>
+列表展示
+<td><sen:addressName id="${user.PROVINCE}" /></td>
+
+字典显示，coding内为枚举类
+<sen:select name="filter_jkType"coding="productType" clazz="combox" title="全部" value="${filter_jkType}" />
+<sen:selectCheckbox clazz="fkfsId"  coding="moneyComeType" name="fkfsNs" value="${map.fkfs}"/>
+//列表内字典值显示
+<td><sen:vtoName coding="moneyComeType" value="${user.SQTYPE}"/></td>
+
+
+金额格式化
+<fmt:formatNumber value="${user.JHTZJE}" pattern="#,#00.00" />
+
+日期格式化
+<td align="center"><fmt:formatDate value='${accredited.createTime}' pattern='yyyy-MM-dd HH:mm:ss' /></td>
+
+//设置自增主键起始值
+alter table menutable AUTO_INCREMENT = 100;
+
+//mysql物隔离级别
+SELECT @@global.tx_isolation;
+//将REPEATABLE-READ修改为READ-COMMITTED
+set global transaction isolation level read committed;
+set session transaction isolation level read committed;
+
+问题：
+1、退出系统日志保存失败
+2、个人修改密码，返回跳转页面失败，页面报JS错误					

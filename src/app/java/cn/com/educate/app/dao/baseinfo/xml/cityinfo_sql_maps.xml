@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sqlmaps>
+    <!-- 查询 -->
+	 <sql name="queryCityinfoList" common="true">
+		<sqlString><![CDATA[
+			select 
+				a.cname,/*别名*/
+				a.coding,/*编码*/
+				a.deptlevel,/*等级*/
+				a.vname,/*地区名称*/
+				a.pinyin,/*拼音*/
+				a.sortno,/*排序*/
+				a.vtypes,/*状态*/
+				a.parentid,/*上级地区*/
+				a.createtime,/*创建时间*/
+				a.modifytime,/*修改时间*/
+				a.createuser,/*创建人*/
+				a.modifyuser,/*修改人*/
+			a.id
+			 from cityinfo a
+			      where 1=1
+			$sql
+			]]></sqlString>
+	</sql>
+	<!-- 查询 总数 -->
+	<sql name="cnt_queryCityinfoList" common="false">
+		<sqlString>
+			<![CDATA[
+			SELECT COUNT(*) RecordCount FROM (
+			$ibpm_queryCityinfoList
+			)a
+		]]>
+		</sqlString>
+	</sql>
+	<!-- 查询 列表分页 $ibpm_queryPageBefore  $ibpm_queryPageAfter-->
+	<sql name="page_queryCityinfoList" common="false">
+		<sqlString>
+			<![CDATA[
+			$ibpm_queryCityinfoList
+			$ibpm_queryPageAfterMySql
+			]]>
+		</sqlString>
+	</sql>
+	<!-- 插入 -->
+	<sql name="insertCityinfo" common="true">
+		<sqlString><![CDATA[
+			insert into cityinfo (
+			     createtime
+			     #if ($cname)
+			      ,cname /*别名*/
+			     #end
+			     #if ($coding)
+			      ,coding /*编码*/
+			     #end
+			     #if ($deptlevel)
+			      ,deptlevel /*等级*/
+			     #end
+			     #if ($vname)
+			      ,vname /*地区名称*/
+			     #end
+			     #if ($pinyin)
+			      ,pinyin /*拼音*/
+			     #end
+			     #if ($sortno)
+			      ,sortno /*排序*/
+			     #end
+			     #if ($vtypes)
+			      ,vtypes /*状态*/
+			     #end
+			     #if ($parentid)
+			      ,parentid /*上级地区*/
+			     #end
+			     #if ($createtime)
+			      ,createtime /*创建时间*/
+			     #end
+			     #if ($modifytime)
+			      ,modifytime /*修改时间*/
+			     #end
+			     #if ($createuser)
+			      ,createuser /*创建人*/
+			     #end
+			     #if ($modifyuser)
+			      ,modifyuser /*修改人*/
+			     #end
+			) values (
+			     sysdate()
+			     #if ($cname)
+			      ,:cname /*别名*/
+			     #end
+			     #if ($coding)
+			      ,:coding /*编码*/
+			     #end
+			     #if ($deptlevel)
+			      ,:deptlevel /*等级*/
+			     #end
+			     #if ($vname)
+			      ,:vname /*地区名称*/
+			     #end
+			     #if ($pinyin)
+			      ,:pinyin /*拼音*/
+			     #end
+			     #if ($sortno)
+			      ,:sortno /*排序*/
+			     #end
+			     #if ($vtypes)
+			      ,:vtypes /*状态*/
+			     #end
+			     #if ($parentid)
+			      ,:parentid /*上级地区*/
+			     #end
+			     #if ($createtime)
+			      ,:createtime /*创建时间*/
+			     #end
+			     #if ($modifytime)
+			      ,:modifytime /*修改时间*/
+			     #end
+			     #if ($createuser)
+			      ,:createuser /*创建人*/
+			     #end
+			     #if ($modifyuser)
+			      ,:modifyuser /*修改人*/
+			     #end
+			)
+			]]></sqlString>
+	</sql>
+	
+	<!-- 修改  -->
+	<sql name="updateCityinfo" common="true">
+		<sqlString><![CDATA[
+			update cityinfo set
+			     modifytime=sysdate()
+			     #if ($cname)
+			      ,cname=:cname /*别名*/
+			     #end
+			     #if ($coding)
+			      ,coding=:coding /*编码*/
+			     #end
+			     #if ($deptlevel)
+			      ,deptlevel=:deptlevel /*等级*/
+			     #end
+			     #if ($vname)
+			      ,vname=:vname /*地区名称*/
+			     #end
+			     #if ($pinyin)
+			      ,pinyin=:pinyin /*拼音*/
+			     #end
+			     #if ($sortno)
+			      ,sortno=:sortno /*排序*/
+			     #end
+			     #if ($vtypes)
+			      ,vtypes=:vtypes /*状态*/
+			     #end
+			     #if ($parentid)
+			      ,parentid=:parentid /*上级地区*/
+			     #end
+			     #if ($createtime)
+			      ,createtime=:createtime /*创建时间*/
+			     #end
+			     #if ($modifytime)
+			      ,modifytime=:modifytime /*修改时间*/
+			     #end
+			     #if ($createuser)
+			      ,createuser=:createuser /*创建人*/
+			     #end
+			     #if ($modifyuser)
+			      ,modifyuser=:modifyuser /*修改人*/
+			     #end
+			where id=:id
+			]]></sqlString>
+	</sql>
+</sqlmaps>

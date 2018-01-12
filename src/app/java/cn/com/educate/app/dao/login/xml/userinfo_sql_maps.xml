@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlmaps>
+    <!-- 查询 -->
+	 <sql name="queryUserinfoList" common="true">
+		<sqlString><![CDATA[
+			select 
+				a.account,/*账户*/
+				a.password,/*密码*/
+				a.rolesid,/*角色*/
+				a.orgid,/*所属机构*/
+				a.vname,/*姓名*/
+				a.sex,/*性别*/
+				a.card,/*证件号码*/
+				a.phone,/*联系方式*/
+				a.createtime,/*创建时间*/
+				a.modifytime,/*修改时间*/
+				a.createuser,/*创建人*/
+				a.modifyuser,/*修改人*/
+				a.vtypes,/*属性（在用、停用）*/
+				a.busid,/*所属企业*/
+				a.post,/*岗位*/
+			a.id
+			 from userinfo a
+			      where 1=1
+			$sql
+			]]></sqlString>
+	</sql>
+	<!-- 查询 总数 -->
+	<sql name="cnt_queryUserinfoList" common="false">
+		<sqlString>
+			<![CDATA[
+			SELECT COUNT(*) RecordCount FROM (
+			$ibpm_queryUserinfoList
+			)a
+		]]>
+		</sqlString>
+	</sql>
+	<!-- 查询 列表分页 $ibpm_queryPageBefore  $ibpm_queryPageAfter-->
+	<sql name="page_queryUserinfoList" common="false">
+		<sqlString>
+			<![CDATA[
+			$ibpm_queryUserinfoList
+			$ibpm_queryPageAfterMySql
+			]]>
+		</sqlString>
+	</sql>
+	<!-- 插入 -->
+	<sql name="insertUserinfo" common="true">
+		<sqlString><![CDATA[
+			insert into userinfo (
+			     createtime
+			     #if ($account)
+			      ,account /*账户*/
+			     #end
+			     #if ($password)
+			      ,password /*密码*/
+			     #end
+			     #if ($rolesid)
+			      ,rolesid /*角色*/
+			     #end
+			     #if ($orgid)
+			      ,orgid /*所属机构*/
+			     #end
+			     #if ($vname)
+			      ,vname /*姓名*/
+			     #end
+			     #if ($sex)
+			      ,sex /*性别*/
+			     #end
+			     #if ($card)
+			      ,card /*证件号码*/
+			     #end
+			     #if ($phone)
+			      ,phone /*联系方式*/
+			     #end
+			     #if ($createuser)
+			      ,createuser /*创建人*/
+			     #end
+			     #if ($vtypes)
+			      ,vtypes /*属性（在用、停用）*/
+			     #end
+			     #if ($busid)
+			      ,busid /*所属企业*/
+			     #end
+			     #if ($post)
+			      ,post /*岗位*/
+			     #end
+			) values (
+			     sysdate()
+			     #if ($account)
+			      ,:account /*账户*/
+			     #end
+			     #if ($password)
+			      ,:password /*密码*/
+			     #end
+			     #if ($rolesid)
+			      ,:rolesid /*角色*/
+			     #end
+			     #if ($orgid)
+			      ,:orgid /*所属机构*/
+			     #end
+			     #if ($vname)
+			      ,:vname /*姓名*/
+			     #end
+			     #if ($sex)
+			      ,:sex /*性别*/
+			     #end
+			     #if ($card)
+			      ,:card /*证件号码*/
+			     #end
+			     #if ($phone)
+			      ,:phone /*联系方式*/
+			     #end
+			     #if ($createuser)
+			      ,:createuser /*创建人*/
+			     #end
+			     #if ($vtypes)
+			      ,:vtypes /*属性（在用、停用）*/
+			     #end
+			     #if ($busid)
+			      ,:busid /*所属企业*/
+			     #end
+			     #if ($post)
+			      ,:post /*岗位*/
+			     #end
+			)
+			]]></sqlString>
+	</sql>
+	
+	<!-- 修改  -->
+	<sql name="updateUserinfo" common="true">
+		<sqlString><![CDATA[
+			update userinfo set
+			     modifytime=sysdate()
+			     #if ($account)
+			      ,account=:account /*账户*/
+			     #end
+			     #if ($password)
+			      ,password=:password /*密码*/
+			     #end
+			     #if ($rolesid)
+			      ,rolesid=:rolesid /*角色*/
+			     #end
+			     #if ($orgid)
+			      ,orgid=:orgid /*所属机构*/
+			     #end
+			     #if ($vname)
+			      ,vname=:vname /*姓名*/
+			     #end
+			     #if ($sex)
+			      ,sex=:sex /*性别*/
+			     #end
+			     #if ($card)
+			      ,card=:card /*证件号码*/
+			     #end
+			     #if ($phone)
+			      ,phone=:phone /*联系方式*/
+			     #end
+			     #if ($modifyuser)
+			      ,modifyuser=:modifyuser /*修改人*/
+			     #end
+			     #if ($vtypes)
+			      ,vtypes=:vtypes /*属性（在用、停用）*/
+			     #end
+			     #if ($busid)
+			      ,busid=:busid /*所属企业*/
+			     #end
+			     #if ($post)
+			      ,post=:post /*岗位*/
+			     #end
+			where id=:id
+			]]></sqlString>
+	</sql>
+</sqlmaps>

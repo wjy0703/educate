@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 应用级系统配置文件 -->
+<configuration>
+	<!-- <sip-server>yanshikj.vicp.cc</sip-server> -->
+	<PDF2SWF_PATH>D:\\Program Files\\SWFTools\\pdf2swf.exe</PDF2SWF_PATH>
+	<OPENOFFICE_HOME>c:\\Program Files\\OpenOffice.org 3</OPENOFFICE_HOME>
+	<OPENOFFICE_PORT>8100</OPENOFFICE_PORT>
+</configuration>

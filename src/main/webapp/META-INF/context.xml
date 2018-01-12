@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/CHP" debug="1" reloadable="false">
+  <Parameter name="runtimeEnvironment" value="DEVEL" override="false"/>
+
+</Context>

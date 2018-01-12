@@ -1,0 +1,12 @@
+
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('1','1','系统管理','0','/baseinfo/menuleft','2','0',NULL,'','','','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('2','2','权限管理','1',NULL,'1','0','1','','','','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('3','3','资源管理','2','/account/listauth','1','0','2','rel_listauth','','','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('4','3','角色管理','2','/account/listrole','2','0','2','rel_listrole','','','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('5','3','用户管理','2','/account/listuser','3','0','2','rel_listuser','','','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('6','2','基础信息管理','1',NULL,'2','0','1','','','','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('7','3','员工管理','2','/baseinfo/listemployee','3','0','6','rel_listemployee','','','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('8','3','组织机构管理','2','http://www.baidu.com','2','1','6','','','','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('9','3','系统参数设置','2','http://www.baidu.com','1','1','6','','','百度搜索','P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('10','3','菜单管理','2','/baseinfo/listmenu','4','1','2','rel_listmenu',NULL,NULL,'P','P');
+insert into base_menu (id, level_id, menu_name, menu_type, menu_url, sort_no, sts, heiger_menu, rel, target, title, external, fresh) values('11','3','客户信息管理','2','/baseinfo/listcustomer','4','0','6','rel_listcustomer',NULL,NULL,'P','P');

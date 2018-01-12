@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlmaps>
+	<sql name="queryPageBefore" common="true">
+		<sqlString><![CDATA[
+	   		select * from (select row_.*, rownum rownum_ from (
+	  	]]></sqlString>
+	</sql>
+
+	<sql name="queryPageAfter" common="true">
+		<sqlString><![CDATA[   )row_ ) where rownum_>=:start and rownum_<=:end ]]></sqlString>
+	</sql>
+	
+	<sql name="queryPageAfterMySql" common="true">
+		<sqlString><![CDATA[   LIMIT :start,:size ]]></sqlString>
+	</sql>
+	
+	<sql name="queryCustomer">
+		<sqlString><![CDATA[
+            $ibpm_queryPageBefore
+			select id, name, address 
+			from customer 
+			WHERE 1=1
+			## Dynamic Content
+			#if ($name)
+			AND name like :name
+			#end
+			#if ($adress)
+			AND adress=:adress
+			#end			
+			$ibpm_queryPageAfter
+			]]></sqlString>
+	</sql>
+</sqlmaps>

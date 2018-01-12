@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/template_sqlmap"
+	xmlns:tns="http://www.example.org/template_sqlmap" elementFormDefault="qualified">
+
+	<element name="sql" type="string" />
+	<element name="sqlmap">
+		<complexType>
+			<sequence>
+				<element ref="tns:sql" minOccurs="0" />
+			</sequence>
+			<attribute name="name" type="string" use="required" />
+			<attribute name="before" type="string" />
+			<attribute name="after" type="string" />
+		</complexType>
+	</element>
+
+	<element name="sqlmaps">
+		<complexType>
+			<sequence>
+				<element ref="tns:sqlmap" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+
+	<diskStore path="java.io.tmpdir/hibernate/app" />
+
+	<!-- DefaultCache setting. -->
+	<defaultCache maxElementsInMemory="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="false" timeToIdleSeconds="300"
+		timeToLiveSeconds="300" overflowToDisk="false" diskPersistent="false" />
+
+	<!-- Special objects setting. -->
+	<cache name="cn.com.educate.app.entity.security.Userinfo"
+		maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<cache name="cn.com.educate.app.entity.security.Userinfo.roleinfo"
+		maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<cache name="cn.com.educate.app.entity.security.Roleinfo"
+		maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<cache name="cn.com.educate.app.entity.security.Roleinfo.authorityList"
+		maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<cache name="cn.com.educate.app.entity.security.Authority"
+		maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<!-- 
+	<cache name="cn.com.educate.app.entity.security.Resource"
+		maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<cache name="cn.com.educate.app.entity.security.Resource.authorityList"
+		maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+		 -->
+	<cache name="cn.com.educate.app.entity.login.Menutable"
+		maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+</ehcache>

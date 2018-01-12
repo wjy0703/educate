@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sqlmaps>
+    <!-- 查询 -->
+	 <sql name="queryOperatelogList" common="true">
+		<sqlString><![CDATA[
+			select 
+				a.createtime,/*创建时间*/
+				a.modifytime,/*修改时间*/
+				a.createuser,/*创建人*/
+				a.modifyuser,/*修改人*/
+				a.ip,/*IP地址*/
+				a.remarks,/*内容*/
+			a.id
+			 from operatelog a
+			      where 1=1
+			$sql
+			]]></sqlString>
+	</sql>
+	<!-- 查询 总数 -->
+	<sql name="cnt_queryOperatelogList" common="false">
+		<sqlString>
+			<![CDATA[
+			SELECT COUNT(*) RecordCount FROM (
+			$ibpm_queryOperatelogList
+			)a
+		]]>
+		</sqlString>
+	</sql>
+	<!-- 查询 列表分页 $ibpm_queryPageBefore  $ibpm_queryPageAfter-->
+	<sql name="page_queryOperatelogList" common="false">
+		<sqlString>
+			<![CDATA[
+			$ibpm_queryOperatelogList
+			$ibpm_queryPageAfterMySql
+			]]>
+		</sqlString>
+	</sql>
+	<!-- 插入 -->
+	<sql name="insertOperatelog" common="true">
+		<sqlString><![CDATA[
+			insert into operatelog (
+			     createtime
+			     #if ($createuser)
+			      ,createuser /*创建人*/
+			     #end
+			     #if ($ip)
+			      ,ip /*IP地址*/
+			     #end
+			     #if ($remarks)
+			      ,remarks /*内容*/
+			     #end
+			) values (
+			     sysdate()
+			     #if ($createuser)
+			      ,:createuser /*创建人*/
+			     #end
+			     #if ($ip)
+			      ,:ip /*IP地址*/
+			     #end
+			     #if ($remarks)
+			      ,:remarks /*内容*/
+			     #end
+			)
+			]]></sqlString>
+	</sql>
+	
+	<!-- 修改  -->
+	<sql name="updateOperatelog" common="true">
+		<sqlString><![CDATA[
+			update operatelog set
+			     modifytime=sysdate()
+			     #if ($modifyuser)
+			      ,modifyuser=:modifyuser /*修改人*/
+			     #end
+			     #if ($ip)
+			      ,ip=:ip /*IP地址*/
+			     #end
+			     #if ($remarks)
+			      ,remarks=:remarks /*内容*/
+			     #end
+			where id=:id
+			]]></sqlString>
+	</sql>
+</sqlmaps>
