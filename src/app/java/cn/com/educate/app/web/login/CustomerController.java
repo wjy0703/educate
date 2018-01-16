@@ -1,5 +1,7 @@
 package cn.com.educate.app.web.login;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.com.educate.app.entity.login.Operatelog;
-import cn.com.educate.app.entity.login.Organizeinfo;
 import cn.com.educate.app.entity.security.Userinfo;
 import cn.com.educate.app.service.login.UserinfoManager;
 import cn.com.educate.app.service.security.OperatelogManager;
@@ -78,8 +77,17 @@ public class CustomerController {
 		}else{
 			sexs = "女士";
 		}
-		String organiName = "未分组";
 		Userinfo user = userinfoManager.getUserinfo(operator.getUserId());
+		
+		user.setOldip(user.getNowip());
+		user.setOldlogtime(user.getNowlogtime());
+		
+		user.setNowlogtime(new Timestamp(new Date().getTime()));
+		user.setNowip(getIpAddr(request));
+		
+		userinfoManager.saveUserinfo(user);
+		/*
+		String organiName = "未分组";
 		Organizeinfo organi = user.getOrganizeinfo();
 		String parentName = "";
 		if(organi != null){
@@ -92,9 +100,11 @@ public class CustomerController {
 				}
 			}
 		}
+		*/
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		boolean isMess = false;
-        modelMap.put("name", "欢迎您，"+user.getBusinessinfo().getBusiname()+"-"+parentName+organiName+"-"+user.getVname()+sexs+"！");
+//        modelMap.put("name", "欢迎您，"+user.getBusinessinfo().getBusiname()+"-"+parentName+organiName+"-"+user.getVname()+sexs+"！");
+		modelMap.put("name", "欢迎您，"+user.getVname()+sexs+"！");
 		modelMap.put("success", "true");
 		modelMap.put("isMess", isMess);
 		modelMap.put("pass", userinfoManager.isLoginPass(user));
@@ -121,14 +131,4 @@ public class CustomerController {
         return ip;
         }
     
-    /**
-     * 获取系统属性参数判断是否需要放入查询条件map中
-     */
-    private String getSysTypeIsPut(HttpServletRequest request,Map<String,Object> params) {
-        String sysType = request.getParameter("sysTypeParam");
-        if (params != null && StringUtils.isNotBlank(sysType)) {
-            params.put("sysTypeParam", sysType);
-        }
-        return sysType;
-    }
 }

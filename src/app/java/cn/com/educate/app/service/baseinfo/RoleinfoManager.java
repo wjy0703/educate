@@ -171,7 +171,7 @@ public class RoleinfoManager {
     	conditions.put("createuser", roleinfo.getCreateuser());
     	conditions.put("modifyuser", roleinfo.getModifyuser());
     	conditions.put("vtypes", roleinfo.getVtypes());
-    	conditions.put("busid", roleinfo.getBusid());
+//    	conditions.put("busid", roleinfo.getBusid());
     	return conditions;
     }
 	@Transactional(readOnly = true)

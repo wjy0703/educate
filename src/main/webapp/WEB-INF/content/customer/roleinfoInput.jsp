@@ -7,14 +7,12 @@
 		class="pageForm required-validate"
 		onsubmit="return validateCallback(this, navTabAjaxDone);">
 		<input type="hidden" name="id" value="${role.id}" />
-		<input type="hidden" name="busid" value="${role.busid}" />
-		<input type="hidden" name="busacc" id="busacc" value="${operator.busacc}" />
 		<input type="hidden" name="canLook" id="canLook" value="${canLook}" />
 		<div class="pageFormContent" layoutH="56">
 			<p>
 				<label>角色名称：</label> <input name="rolename" id="rolename" type="text" size="30"
-					alt="请输入角色名称，3-32字符" value="${role.rolename }" class="required"
-					minlength="3" maxlength="32"
+					alt="请输入角色名称，2-32字符" value="${role.rolename }" class="required"
+					minlength="2" maxlength="32"
 					onblur="vRoleName('${role.rolename }','rolename','角色名称');" />
 			</p>
 			<p>

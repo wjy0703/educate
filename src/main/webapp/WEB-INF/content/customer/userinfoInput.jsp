@@ -51,13 +51,6 @@
 					value="${user.mail }" />
 			</p>
 			<p>
-				<label>机构/部门：</label>
-				<input type="hidden" name="orgLookup.busid" value="${user.businessinfo.id}" />
-				<input type="hidden" name="orgLookup.id" value="${user.organizeinfo.id}" />
-				<input type="text" name="orgLookup.name" size="30" readonly="readonly" value="${user.organizeinfo.orgname }" />
-				<a href="${ctx }/organize/getTreeDept" lookupGroup="orgLookup" width="400" height="400">选择机构</a>
-			</p>
-			<p>
 					<label>角色：</label>
 					<input type="hidden" name="roleinfo.id" value="${user.roleinfo.id}" >
 					<input type="text" name="roleinfo.name" size="30" 

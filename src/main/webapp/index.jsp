@@ -12,7 +12,7 @@
 <meta http-equiv="cache-control" content="no-cache"/>
 <meta http-equiv="expires" content="0"/>
 
-<title>小商管理系统</title>
+<title>Educate管理平台</title>
 
 <link href="${ctx}/themes/default/style.css" rel="stylesheet"
 	type="text/css" />

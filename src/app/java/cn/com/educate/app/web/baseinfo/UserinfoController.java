@@ -19,11 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import cn.com.educate.app.entity.login.Businessinfo;
-import cn.com.educate.app.entity.login.Organizeinfo;
 import cn.com.educate.app.entity.security.Userinfo;
-import cn.com.educate.app.service.baseinfo.BusinessinfoManager;
-import cn.com.educate.app.service.baseinfo.OrganizeinfoManager;
 import cn.com.educate.app.service.login.UserinfoManager;
 import cn.com.educate.app.service.security.OperatorDetails;
 import cn.com.educate.app.util.HibernateAwareBeanUtilsBean;
@@ -40,12 +36,6 @@ import cn.com.educate.core.web.ServletUtils;
 @RequestMapping(value="/userinfo")
 public class UserinfoController {
 	private Logger logger = LoggerFactory.getLogger(UserinfoController.class);
-	
-	@Autowired
-	private OrganizeinfoManager organizeinfoManager;
-	
-	@Autowired
-	private BusinessinfoManager businessinfoManager;
 	
 	private UserinfoManager userinfoManager;
 	@Autowired
@@ -152,9 +142,9 @@ public class UserinfoController {
 	@RequestMapping(value = "/addTreeUser/{Id}", method = RequestMethod.GET)
     public String addTreeEmployee(@PathVariable Long Id, Model model) {
 		Userinfo userinfo = new Userinfo();
-	    Organizeinfo organi = organizeinfoManager.getOrganizeinfo(Id);
-	    userinfo.setOrganizeinfo(organi);
-	    userinfo.setBusinessinfo(organi.getBusinessinfo());
+//	    Organizeinfo organi = organizeinfoManager.getOrganizeinfo(Id);
+//	    userinfo.setOrganizeinfo(organi);
+//	    userinfo.setBusinessinfo(organi.getBusinessinfo());
 	    String canLook = PropertiesUtils.putBusidLook();
 		model.addAttribute("canLook", canLook);
 	    model.addAttribute("userinfo", userinfo);
@@ -193,7 +183,7 @@ public class UserinfoController {
 	@RequestMapping(value = "/getRole")
 	public String getRole(HttpServletRequest request, Model model) {
 		OperatorDetails operator = (OperatorDetails)SpringSecurityUtils.getCurrentUser();
-		model.addAttribute("result",organizeinfoManager.buildOrganiByType());
+//		model.addAttribute("result",organizeinfoManager.buildOrganiByType());
 		model.addAttribute("operator",operator);
 		return "customer/treeLookup";
 	}
@@ -244,19 +234,6 @@ public class UserinfoController {
 			user.setPassword(EncodeUtils.getMd5PasswordEncoder("abc123",
 					user.getAccount()));
 		}
-		String orgId = request.getParameter("orgLookup.id");//原来是在页面给的值  现在在后台获取父id 并保存
-	    String busid = request.getParameter("orgLookup.busid");
-	    
-//	    user.setBusinessinfo(businessinfoManager.getBusinessinfo(Long.parseLong(busid)));
-//	    user.setOrganizeinfo(organizeinfoManager.getOrganizeinfo(Long.parseLong(orgId)));
-	    
-	    Businessinfo bus = new Businessinfo();
-        bus.setId(Long.parseLong(busid));
-        user.setBusinessinfo(bus);
-        
-        Organizeinfo org = new Organizeinfo();
-        org.setId(Long.parseLong(orgId));
-        user.setOrganizeinfo(org);
         
 		userinfoManager.saveUser(user);
 

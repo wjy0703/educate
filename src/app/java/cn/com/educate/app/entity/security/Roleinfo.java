@@ -65,16 +65,6 @@ public class Roleinfo extends AuditableEntity{
 	public void setVtypes(String vtypes) {
 		this.vtypes = vtypes;
 	}
-	private Long busid;//所属企业
-	/**所属企业*/
-	@Column(columnDefinition=DEF_NUM10)
-	public Long getBusid() {
-		return this.busid;
-	}
-	/**所属企业*/
-	public void setBusid(Long busid) {
-		this.busid = busid;
-	}
 	
 	private String flag;
 	@Column(columnDefinition=DEF_STR1)

@@ -1,17 +1,10 @@
 package cn.com.educate.app.dao.login;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
-import cn.com.educate.app.entity.login.Organizeinfo;
-import cn.com.educate.app.entity.security.Roleinfo;
 import cn.com.educate.app.entity.security.Userinfo;
 import cn.com.educate.app.util.PropertiesUtils;
 import cn.com.educate.core.orm.Page;
@@ -25,11 +18,6 @@ public class UserinfoDao extends HibernateDao<Userinfo, Long>{
 		StringBuffer hql=new StringBuffer();
 		hql.append("from Userinfo u where u.vtypes='0' ");
 //		String hql = "from Organizeinfo organi where organi.parentid=? and organi.orgflag = '0' order by organi.id";
-		//所属企业
-		if(params.containsKey("orgid")){
-//					hql = hql + " and busid = :busid";
-			hql.append(" and  organizeinfo.id=:orgid ");
-		}
 		hql.append("  order by u.id");
 		return this.find(hql.toString(), params);
 	}
@@ -53,10 +41,6 @@ public class UserinfoDao extends HibernateDao<Userinfo, Long>{
 		if(params.containsKey("rolesid")){
 //			hql = hql + " and rolesid = :rolesid";
 			hql.append(" and rolesid = :rolesid");
-		}
-		if(params.containsKey("organi.id")){
-			String id = params.get("organi.id").toString();
-			hql.append(" and organizeinfo.id = "+Long.valueOf(id));
 		}
 		//姓名
 		if(params.containsKey("vname")){

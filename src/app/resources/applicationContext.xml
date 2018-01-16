@@ -66,9 +66,9 @@
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
-				<!-- 关闭开启二级缓存 
+				<!-- 关闭开启二级缓存 -->
 				<prop key="hibernate.cache.use_second_level_cache">${hibernate.second_level}</prop>
-				-->
+				
 				<!-- 修改Mysl数据库的事物隔离级别 -->
 				<prop key="connection.isolation">2</prop>
 				<prop key="hibernate.hbm2ddl.auto">null</prop>

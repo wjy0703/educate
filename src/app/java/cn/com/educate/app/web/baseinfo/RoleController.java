@@ -227,7 +227,7 @@ public class RoleController {
 	public String add(HttpServletRequest request, Model model){
 		Roleinfo role = new Roleinfo();
 		OperatorDetails operator = (OperatorDetails)SpringSecurityUtils.getCurrentUser();
-		role.setBusid(operator.getBusid());
+//		role.setBusid(operator.getBusid());
 		String canLook = PropertiesUtils.putBusidLook();
 		model.addAttribute("canLook", canLook);
 		model.addAttribute("role", role);

@@ -43,19 +43,28 @@
 						   <button class = "cache" href="#" data="enums">枚举类</button>
 						</td>
 					</tr>
-					
+					<tr>
+						<td> &nbsp;
+						</td>
+						<td> 
+						</td>
+					</tr>
 					<tr>
 						<td> 
 						   <button class = "cache" href="#" data="user">员工</button>
 						</td>
 						<td> 
-						   <button class = "cache" href="#" data="dept">门店</button>
+						   <button class = "cache" href="#" data="address">省份(城市)</button>
 						</td>
 					</tr>
-					
 					<tr>
+						<td> &nbsp;
+						</td>
 						<td> 
-						   <button class = "cache" href="#" data="address">省份(城市)</button>
+						</td>
+					</tr>
+					<tr>
+					<td> 
 						</td>
 						<td> 
 						   <button class = "cache" href="#" data="all">所有</button>

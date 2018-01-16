@@ -66,15 +66,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		userDetails.setSex(user.getSex());
 //		userDetails.setDeptId(user.getOrgid());
 //		userDetails.setBusid(user.getBusid());
-		userDetails.setBusid(user.getBusinessinfo().getId());
+//		userDetails.setBusid(user.getBusinessinfo().getId());
 		userDetails.setLoginEmployeeId(user.getId());
 		userDetails.setPositionCode(user.getPost());
-		userDetails.setBusname(user.getBusinessinfo().getBusiname());
-		userDetails.setBusacc(user.getBusinessinfo().getBusiaccount());
-		if(null != user.getOrganizeinfo()){
-			userDetails.setDeptId(user.getOrganizeinfo().getId());
-			userDetails.setOrgname(user.getOrganizeinfo().getOrgname());
-		}
+//		userDetails.setBusname(user.getBusinessinfo().getBusiname());
+//		userDetails.setBusacc(user.getBusinessinfo().getBusiaccount());
+//		if(null != user.getOrganizeinfo()){
+//			userDetails.setDeptId(user.getOrganizeinfo().getId());
+//			userDetails.setOrgname(user.getOrganizeinfo().getOrgname());
+//		}
 		return userDetails;
 
 	}

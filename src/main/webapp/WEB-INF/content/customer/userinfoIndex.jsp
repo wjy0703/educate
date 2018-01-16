@@ -24,13 +24,6 @@
 					name="filter_vname" value="${map.vname}"/>
 					</td>
 				<td>
-				<label>机构:</label>
-					<input name="filter_organi.id" type="hidden" value="${organiId}"/>
-					<input name="filter_organi.name" type="text" size="30" value="${organiName }" readonly="readonly"/>
-					<a href="${ctx }/organize/getTreeDept" lookupGroup="filter_organi" style=""><span style="color: #7F7F7F;">选择机构</span></a>
-					
-				</td>
-				<td>
 				<label>状态:</label> 
 				<sen:select clazz="combox required" name="filter_vtypes" id="filter_vtypes" coding="onjob" value="${map.vtypes }" title="请选择"/>
 				</td>
@@ -72,8 +65,8 @@
 					class="checkboxCtrl"></th>
 				<th width="80" >用户名</th>
 				<th width="80">员工姓名</th>
-				<th >所属机构</th>
-				<th >所属企业</th>
+				<th width="80">岗位</th>
+				<th width="80">角色</th>
 				<th width="40" orderField="sts">状态</th>
 				<th width="80" orderField="createBy">创建人</th>
 				<th width="140" orderField="createTime">创建日期</th>
@@ -92,8 +85,8 @@
 					</td>
 					<td>${user.account }</td>
 					<td>${user.vname }</td>
-					<td>${user.organizeinfo.orgname }</td>
-					<td>${user.businessinfo.businame }</td>
+					<td><sen:vtoName coding="postType" value="${user.post}"/></td>
+					<td>${user.roleinfo.rolename }</td>
 					<td><sen:vtoName coding="onjob" value="${user.vtypes}"/></td>
 					<td>${user.createuser }</td>
 					<td><fmt:formatDate value='${user.createtime}' pattern='yyyy-MM-dd HH:mm:ss' /></td>

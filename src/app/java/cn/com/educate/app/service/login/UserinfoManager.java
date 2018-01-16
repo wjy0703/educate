@@ -15,11 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.com.educate.app.dao.JdbcDao;
 import cn.com.educate.app.dao.login.AuthorityDao;
 import cn.com.educate.app.dao.login.MenutableDao;
-import cn.com.educate.app.dao.login.OrganizeinfoDao;
 import cn.com.educate.app.dao.login.RoleinfoDao;
 import cn.com.educate.app.dao.login.UserinfoDao;
 import cn.com.educate.app.entity.login.Menutable;
-import cn.com.educate.app.entity.login.Organizeinfo;
 import cn.com.educate.app.entity.security.Authority;
 import cn.com.educate.app.entity.security.Roleinfo;
 import cn.com.educate.app.entity.security.Userinfo;
@@ -52,8 +50,6 @@ public class UserinfoManager {
 	public void setJdbcDao(JdbcDao jdbcDao) {
 		this.jdbcDao = jdbcDao;
 	}
-	@Autowired
-	private OrganizeinfoDao organizeinfoDao;
 	
 	private RoleinfoDao roleinfoDao;
     private AuthorityDao authorityDao;
@@ -69,10 +65,6 @@ public class UserinfoManager {
     @Autowired
 	public void setMenutableDao(MenutableDao menutableDao) {
 		this.menutableDao = menutableDao;
-	}
-    @Transactional(readOnly = true)
-	public Organizeinfo gerOrgani(Long parentId){
-		return organizeinfoDao.get(parentId);
 	}
 	@Transactional(readOnly = true)
 	public Page<Userinfo> searchUserinfo(final Page<Userinfo> page, final Map<String,Object> filters) {
@@ -308,18 +300,6 @@ public class UserinfoManager {
 			user = null;
 		}
 		
-//		Map<String, Object> conditions = new HashMap<String, Object>();
-//		conditions.put("sql", " and a.account='"+account+"' ");
-//		List<Map<String,Object>> userList = jdbcDao.searchBySqlTemplate("queryUserinfoList", conditions);
-//		if(userList.size()==1){
-//			user = MapVsBean.mapToBean(userList.get(0), user);
-//			//获取全部权限
-//			if("0".equals(user.getVtypes())){
-//				
-//			}else{
-//				user = null;
-//			}
-//		}
 		return user;
 	}
 	

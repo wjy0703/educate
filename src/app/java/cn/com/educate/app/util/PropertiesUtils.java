@@ -24,6 +24,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.DefaultPropertiesPersister;
 import org.springframework.util.PropertiesPersister;
 
+import cn.com.educate.app.entity.security.Roleinfo;
 import cn.com.educate.app.service.security.OperatorDetails;
 import cn.com.educate.app.web.InitSetupListener;
 import cn.com.educate.core.security.springsecurity.SpringSecurityUtils;
@@ -72,30 +73,37 @@ public class PropertiesUtils
   public static void putBusidCheck(Map<String, Object> params)
   {
 	  OperatorDetails operator = (OperatorDetails)SpringSecurityUtils.getCurrentUser();
-	  params.put("busid", -1L);
-	  params.put("orgid", -1L);
+//	  params.put("busid", -1L);
+//	  params.put("orgid", -1L);
 	  params.put("vsystype", "-1");
 	  if(null != operator){
+		  List<Roleinfo> roleList = operator.getRoleList();
+		  String role = "1";
+		  for(Roleinfo r : roleList){
+			  if(r.getId()==0){
+				  role="0";
+				  break;
+			  }
+		  }
 		  String post = operator.getPositionCode();
-		  Long busid = operator.getBusid();
-		  if(StringUtils.isNotEmpty(post) && busid >= 0){
+		  if(StringUtils.isNotEmpty(post)){
 			  logger.warn("====PropertiesUtils======putBusidCheck======post======:::"+post);
-			  if(post.equals("0") && busid == 0){//超级管理员
-				  params.remove("busid");
-				  params.remove("orgid");
+			  if(post.equals("0") && role.equals("0")){//超级管理员
+//				  params.remove("busid");
+//				  params.remove("orgid");
 				  params.remove("vsystype");
 			  }else 
 				  {if (post.equals("1")){//商家管理员
-					  params.put("busid", operator.getBusid());
+//					  params.put("busid", operator.getBusid());
 					  //查询业务属性的资源和菜单
 					  params.put("vsystype", "1");//
 				  }else if (post.equals("2")){//店铺管理员
-					  params.put("busid", operator.getBusid());
-					  params.put("orgid", operator.getDeptId());
+//					  params.put("busid", operator.getBusid());
+//					  params.put("orgid", operator.getDeptId());
 					  params.put("vsystype", "1");
 				  }else{
-					  params.put("busid", operator.getBusid());
-					  params.put("orgid", operator.getDeptId());
+//					  params.put("busid", operator.getBusid());
+//					  params.put("orgid", operator.getDeptId());
 					  params.put("vsystype", "1");
 				  }
 			  }
@@ -110,15 +118,24 @@ public class PropertiesUtils
   {
 	  OperatorDetails operator = (OperatorDetails)SpringSecurityUtils.getCurrentUser();
 	  String canLook= "1";
+	  
 	  if(null != operator){
-		  String post = operator.getPositionCode();
-		  Long busid = operator.getBusid();
-		  if(StringUtils.isNotEmpty(post) && busid >= 0){
-			  logger.warn("====PropertiesUtils======putBusidLook======post======:::"+post);
-			  if(post.equals("0") && busid == 0){//超级管理员
-				  canLook ="0";
+		  List<Roleinfo> roleList = operator.getRoleList();
+		  String role = "1";
+		  for(Roleinfo r : roleList){
+			  if(r.getId()==0){
+				  role="0";
+				  break;
 			  }
 		  }
+		  String post = operator.getPositionCode();
+//		  Long busid = operator.getBusid();
+//		  if(StringUtils.isNotEmpty(post) && busid >= 0){
+			  logger.warn("====PropertiesUtils======putBusidLook======post======:::"+post);
+			  if(post.equals("0") && role.equals("0")){//超级管理员
+				  canLook ="0";
+			  }
+//		  }
 	  }
 	  return canLook;
   }

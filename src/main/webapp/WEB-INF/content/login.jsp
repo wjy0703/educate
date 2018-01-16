@@ -28,7 +28,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>小商管理系统</title>
+<title>Educate管理平台</title>
 <link href="${ctx}/resources/front.css" rel="stylesheet" type="text/css" />
 <script src="${ctx}/resources/jquery.js" type="text/javascript"></script>
 <script src="${ctx}/resources/front.js" type="text/javascript"></script>
@@ -61,12 +61,12 @@
 			<div class="toolbar-inner">
 
 				<div class="fr">
-				<a id="backTop" href="${ctx}/intercept/businessinfo/listBusinessinfo" onmouseover="showDiv('/intercept/businessinfo/listBusinessinfo',event);"
+				<a id="backTop" href="${ctx}/intercept/authority/listauth" onmouseover="showDiv('/intercept/authority/listauth',event);"
 				onMouseOut="closeDiv()">返回首页</a>|183.128.152.168<sen:ipAddress value="183.128.152.168"/>|
 					<a href="#"
 						onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://210.51.3.64/CHP');">设为主页</a>|
 					<a
-						onClick="window.external.addFavorite('http://210.51.3.64/CHP','小商管理系统')"
+						onClick="window.external.addFavorite('http://210.51.3.64/CHP','Educate管理平台')"
 						href="javascript:void(0);">加入收藏</a>
 				<div id="Idiv" style="display:none; position:absolute; z-index:1000; background:#67a3d9;">
 <div id="mou_head" style="width:100px; height:100px;">

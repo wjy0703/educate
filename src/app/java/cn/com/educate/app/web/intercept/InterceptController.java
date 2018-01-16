@@ -9,38 +9,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cn.com.educate.app.entity.login.Businessinfo;
-import cn.com.educate.app.service.baseinfo.BusinessinfoManager;
-import cn.com.educate.app.service.reat.ReatpackageManager;
+import cn.com.educate.app.entity.security.Authority;
+import cn.com.educate.app.service.baseinfo.AuthorityManager;
 import cn.com.educate.app.util.RequestPageUtils;
 import cn.com.educate.core.orm.Page;
 import cn.com.educate.core.web.ServletUtils;
 
 @Controller
-@RequestMapping(value="/intercept/businessinfo")
+@RequestMapping(value="/intercept/authority")
 public class InterceptController {
-	private BusinessinfoManager businessinfoManager;
 	@Autowired
-	public void setBusinessinfoManager(BusinessinfoManager businessinfoManager) {
-		this.businessinfoManager = businessinfoManager;
-	}
-	@Autowired
-	private ReatpackageManager reatpackageManager;
+	private AuthorityManager authorityManager;
 	
-	@RequestMapping(value="/listBusinessinfo")
-	public String listBusinessinfo(HttpServletRequest request, Model model){
-		// 处理分页的参数
-		Page<Businessinfo> page = new RequestPageUtils<Businessinfo>()
+	@RequestMapping(value="/listauth")
+	public String listrole(HttpServletRequest request, Model model){
+		Page<Authority> page = new RequestPageUtils<Authority>()
                 .generatePage(request);
 		
-		Map<String, Object> map = ServletUtils.getParametersStartingWith2(request, "filter_");		
-		
-		businessinfoManager.searchBusinessinfo(page, map);
-	
+		Map<String, Object> params = ServletUtils.getParametersStartingWith2(request, "filter_");
+		authorityManager.searchAuthority(page, params);
 		model.addAttribute("page", page);
-		model.addAttribute("map", map);
-		return "intercept/reat/businessinfoIndex";
-		
+		model.addAttribute("map", params);
+		return "intercept/reat/authorityIndex";
 	}
 	
 }

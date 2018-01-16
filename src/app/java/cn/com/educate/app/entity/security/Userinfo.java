@@ -1,5 +1,7 @@
 package cn.com.educate.app.entity.security;
 
+import java.sql.Timestamp;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +13,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import cn.com.educate.app.entity.login.Businessinfo;
-import cn.com.educate.app.entity.login.Organizeinfo;
 import cn.com.educate.core.orm.hibernate.AuditableEntity;
 
 /**
@@ -129,55 +129,7 @@ public class Userinfo extends AuditableEntity{
 	public void setRoleinfo(Roleinfo roleinfo) {
 		this.roleinfo = roleinfo;
 	}
-	/**所属企业*/
-	private Businessinfo businessinfo;
-	//一对一定义
-	@OneToOne(cascade=CascadeType.REFRESH,fetch = FetchType.LAZY)
-	@JoinColumn(name="busid", unique= false, nullable=true, insertable=true, updatable=true)
-	public Businessinfo getBusinessinfo() {
-		return businessinfo;
-	}
-	public void setBusinessinfo(Businessinfo businessinfo) {
-		this.businessinfo = businessinfo;
-	}
-//	private Long rolesid;//角色
-//	/**角色*/
-//	public Long getRolesid() {
-//		return this.rolesid;
-//	}
-//	/**角色*/
-//	public void setRolesid(Long rolesid) {
-//		this.rolesid = rolesid;
-//	}
-//	private Long busid;//所属企业
-//	/**所属企业*/
-//	public Long getBusid() {
-//		return this.busid;
-//	}
-//	/**所属企业*/
-//	public void setBusid(Long busid) {
-//		this.busid = busid;
-//	}
-//	private Long orgid;//所属机构
-//	/**所属机构*/
-//	public Long getOrgid() {
-//		return this.orgid;
-//	}
-//	/**所属机构*/
-//	public void setOrgid(Long orgid) {
-//		this.orgid = orgid;
-//	}
-	/**所属机构*/
-	private Organizeinfo organizeinfo;
-	//一对一定义
-	@OneToOne(cascade=CascadeType.REFRESH,fetch = FetchType.LAZY)
-	@JoinColumn(name="orgid", unique= false, nullable=true, insertable=true, updatable=true)
-	public Organizeinfo getOrganizeinfo() {
-		return organizeinfo;
-	}
-	public void setOrganizeinfo(Organizeinfo organizeinfo) {
-		this.organizeinfo = organizeinfo;
-	}
+	
 	private String mail;
 	public void setMail(String mail) {
 		this.mail = mail;
@@ -186,5 +138,46 @@ public class Userinfo extends AuditableEntity{
 	@Column(columnDefinition=DEF_STR128)
 	public String getMail() {
 		return mail;
+	}
+	
+	private Timestamp oldlogtime;//上次登陆时间
+	/**上次登陆时间*/
+	@Column(insertable = false)
+	public Timestamp getOldlogtime() {
+		return this.oldlogtime;
+	}
+	/**上次登陆时间*/
+	public void setOldlogtime(Timestamp oldlogtime) {
+		this.oldlogtime = oldlogtime;
+	}
+	private Timestamp nowlogtime;//上次登陆时间
+	/**上次登陆时间*/
+	@Column(insertable = false)
+	public Timestamp getNowlogtime() {
+		return this.nowlogtime;
+	}
+	/**上次登陆时间*/
+	public void setNowlogtime(Timestamp nowlogtime) {
+		this.nowlogtime = nowlogtime;
+	}
+	private String oldip;//上次登陆IP
+	/**上次登陆IP*/
+	@Column(columnDefinition=DEF_STR100)
+	public String getOldip() {
+		return this.oldip;
+	}
+	/**上次登陆IP*/
+	public void setOldip(String oldip) {
+		this.oldip = oldip;
+	}
+	private String nowip;//本次登陆IP
+	/**本次登陆IP*/
+	@Column(columnDefinition=DEF_STR100)
+	public String getNowip() {
+		return this.nowip;
+	}
+	/**本次登陆IP*/
+	public void setNowip(String nowip) {
+		this.nowip = nowip;
 	}
 }
