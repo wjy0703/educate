@@ -124,7 +124,7 @@ function cqClick(){
 		var oRow = event.srcElement.parentNode.parentNode;
 		var oTable = oRow.parentNode.parentNode;
 		oNewRow = oTable.insertRow();
-		for (i = 0; i < oRow.cells.length; i++) {
+		for (var i = 0; i < oRow.cells.length; i++) {
 			oNewRow.insertCell().innerHTML = oRow.cells[i].innerHTML;
 		}
 		oRow.all("DelBtn").disabled = false;
@@ -292,9 +292,9 @@ function cqClick(){
 			//}); 	
 	}
 	
-	String.prototype.Trim = function()    {    return this.replace(/(^\s*)|(\s*$)/g, "");    }
-	String.prototype.LTrim = function()    {    return this.replace(/(^\s*)/g, "");    }   
-	String.prototype.RTrim = function()    {    return this.replace(/(\s*$)/g, "");    }
+	String.prototype.Trim = function()    {    return this.replace(/(^\s*)|(\s*$)/g, "");    };
+	String.prototype.LTrim = function()    {    return this.replace(/(^\s*)/g, "");    };  
+	String.prototype.RTrim = function()    {    return this.replace(/(\s*$)/g, "");    };
 
 </script>
 
