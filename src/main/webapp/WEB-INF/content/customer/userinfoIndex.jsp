@@ -63,14 +63,15 @@
 			<tr>
 				<th width="28"><input type="checkbox" group="ids"
 					class="checkboxCtrl"></th>
-				<th width="80" >用户名</th>
-				<th width="80">员工姓名</th>
-				<th width="80">岗位</th>
-				<th width="80">角色</th>
-				<th width="40" orderField="sts">状态</th>
-				<th width="80" orderField="createBy">创建人</th>
-				<th width="140" orderField="createTime">创建日期</th>
-				<th width="80">修改人</th>
+				<th width="60" >用户名</th>
+				<th width="70">员工姓名</th>
+				<th width="70">岗位</th>
+				<th width="70">角色</th>
+				<th width="30">状态</th>
+				<th width="120" >当前登陆IP</th>
+				<th width="70" >创建人</th>
+				<th width="140">创建日期</th>
+				<th width="70">修改人</th>
 				<th width="140">修改日期</th>
 				<th width="60">操作</th>
 			</tr>
@@ -88,6 +89,8 @@
 					<td><sen:vtoName coding="postType" value="${user.post}"/></td>
 					<td>${user.roleinfo.rolename }</td>
 					<td><sen:vtoName coding="onjob" value="${user.vtypes}"/></td>
+					<td><a class="text-muted text-sm" href="http://www.baidu.com/s?wd=${user.nowip }" target="_blank">${user.nowip }</a>
+					<sen:ipAddress value="${user.nowip }"/></td>
 					<td>${user.createuser }</td>
 					<td><fmt:formatDate value='${user.createtime}' pattern='yyyy-MM-dd HH:mm:ss' /></td>
 					<td>${user.modifyuser }</td>

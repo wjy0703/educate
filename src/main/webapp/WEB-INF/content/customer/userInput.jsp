@@ -33,14 +33,6 @@
 				<label>邮箱：</label> <input name="mail" type="text" size="30"
 					value="${user.mail }" />
 			</p>
-			<p>
-				<label>选择机构/部门：</label> <input type="hidden" name="dept.id" value="1" />
-				<input type="hidden" name="organizeinfo.id"  value="${user.organizeinfo.id}" />
-				<input type="text" id="deptname" class="required" 
-					name="organizeinfo.orgname" value="${user.organizeinfo.orgname }"/>
-				<a class="btnLook" href="${ctx }/baseinfo/getdept"
-								lookupGroup="organi" <c:if test="${user.id != null}">disabled</c:if>><hi:text key="查找带回" /></a>
-			</p>
 
 			<p>
 				<label>岗位：</label> 

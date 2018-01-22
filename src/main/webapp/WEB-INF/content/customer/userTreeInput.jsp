@@ -50,18 +50,6 @@
 					value="${userinfo.mail }" />
 			</p>
 			<p>
-				<label>机构/部门：</label>
-				<input type="hidden" name="dept.id" value="1" />
-				<input name="organizeinfo.id" type="hidden" value="${userinfo.organizeinfo.id}"/>
-				<input class="required" name="organizeinfo.orgname" type="text" value="${userinfo.organizeinfo.orgname }" readonly/>
-			</p>
-			<p>
-				<label>公司：</label>
-				<input type="hidden" name="dept.id" value="1" />
-				<input name="businessinfo.id" type="hidden" value="${userinfo.businessinfo.id}"/>
-				<input class="required" name="businessinfo.businame" type="text" value="${userinfo.businessinfo.businame }" readonly/>
-			</p>
-			<p>
 					<label>角色：</label>
 					<!-- 
 					<input type="hidden" name="orgLookup.id" value="${userinfo.roleinfo.id}" />

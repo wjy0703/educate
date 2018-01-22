@@ -67,6 +67,7 @@
              <list>  
                  <value>/intercept/**</value> <!-- 设置不拦截URL -->
                  <value>/WEB-INF/content/intercept/**</value> <!-- 设置不拦截URL跳转的页面 -->
+                 <value>/upload/**</value>
              </list>  
          </property>  
 		<property name="authenticationManager" ref="authenticationManager" /><!-- 

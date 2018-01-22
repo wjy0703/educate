@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.xwork.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,4 +34,18 @@ public class InterceptController {
 		return "intercept/reat/authorityIndex";
 	}
 	
+	@RequestMapping(value="/playvideo")
+	public String playvideo(HttpServletRequest request, Model model){
+		String path="intercept/player/";
+		String playFlag = request.getParameter("playFlag");
+		
+		model.addAttribute("playFile", "中1.mp4");
+		if(StringUtils.isEmpty(playFlag)){
+			return path+"mediaPlayer";
+		}else{
+			return path+playFlag+"Player";
+		}
+		
+//		return "intercept/player/mediaPlayer";
+	}
 }
