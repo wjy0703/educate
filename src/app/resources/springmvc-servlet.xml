@@ -34,6 +34,7 @@
 	<mvc:resources mapping="/highcharts/**" location="/highcharts/" />
 	<mvc:resources mapping="/ext/**" location="/ext/" />
 	<mvc:resources mapping="/themes/**" location="/themes/" />
+	<mvc:resources mapping="/ueditor/**" location="/ueditor/" />
 	<mvc:resources mapping="/uploadify/**" location="/uploadify/" />
 	<mvc:resources mapping="/xheditor/**" location="/xheditor/" />
 	<mvc:resources mapping="/upload/**" location="/upload/" />

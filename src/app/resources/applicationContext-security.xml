@@ -14,6 +14,7 @@
 		<!-- <s:intercept-url pattern="/services/**" filters="none" /> -->
 		<s:intercept-url pattern="/dwz/**" filters="none" />
 		<s:intercept-url pattern="/themes/**" filters="none" />
+		<s:intercept-url pattern="/ueditor/**" filters="none" />
 		<s:intercept-url pattern="/uploadify/**" filters="none" />
 		<s:intercept-url pattern="/xheditor/**" filters="none" />
 
@@ -68,6 +69,7 @@
                  <value>/intercept/**</value> <!-- 设置不拦截URL -->
                  <value>/WEB-INF/content/intercept/**</value> <!-- 设置不拦截URL跳转的页面 -->
                  <value>/upload/**</value>
+                 <value>/ueditor/**</value>
              </list>  
          </property>  
 		<property name="authenticationManager" ref="authenticationManager" /><!-- 

@@ -41,6 +41,10 @@
 	function clearcookie() {
 		
 	}
+	function test3(url){
+	    var timstamp = (new Date()).valueOf();
+	    alert(timstamp+url);
+	}
 </script>
 <script type="text/javascript">
 	$(function() {
@@ -63,8 +67,7 @@
 				<div class="fr">
 				<a id="backTop" href="${ctx}/intercept/authority/listauth" onmouseover="showDiv('/intercept/authority/listauth',event);"
 				onMouseOut="closeDiv()">返回首页</a>|183.128.152.168<sen:ipAddress value="183.128.152.168"/>|
-				<a href="${ctx}/intercept/authority/umeditor?flag=1" target="_blank">文本测试</a>|
-				
+				<a href="${ctx}/intercept/authority/umeditor" target="_blank">文本测试</a>|
 				<a href="${ctx}/intercept/authority/playvideo?playFlag=rm" target="_blank">avi播放测试</a>|
 					<a href="#"
 						onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://210.51.3.64/CHP');">设为主页</a>|

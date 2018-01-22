@@ -144,6 +144,16 @@
 		<extension>jar</extension>
 		<mime-type>application/java-archive</mime-type>
 	</mime-mapping>
+	
+	<mime-mapping>  
+    <extension>doc</extension>  
+    <mime-type>application/vnd.ms-word</mime-type>  
+	</mime-mapping>
+	
+	<mime-mapping>  
+    <extension>woff</extension>  
+    <mime-type>application/x-font-woff</mime-type>  
+	</mime-mapping>
 
 	<!-- 出错页面定义 -->
 	<error-page>
