@@ -49,17 +49,4 @@ public class InterceptController {
 //		return "intercept/player/mediaPlayer";
 	}
 	
-	@RequestMapping(value="/umeditor")
-	public String umeditor(HttpServletRequest request, Model model){
-		String path="intercept/demo/";
-		
-		String flag = request.getParameter("flag");
-		
-		model.addAttribute("playFile", "中1.mp4");
-		if(StringUtils.isEmpty(flag)){
-			return path+"umeditor";
-		}else{
-			return path+"umeditor"+flag;
-		}
-	}
 }

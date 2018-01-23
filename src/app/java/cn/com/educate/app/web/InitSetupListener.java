@@ -44,16 +44,16 @@ public class InitSetupListener implements ServletContextListener {
 //	            officeManager.stop();
 //	        }
 //	        System.out.println("关闭office转换成功!");
-		System.out.println("启动---InitSetupListener.contextDestroyed()---"+sdf.format(new Date()));
+		logger.warn("启动---InitSetupListener.contextDestroyed()---"+sdf.format(new Date()));
 	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
 		//startService();
 		rootPath = arg0.getServletContext().getRealPath("/");
-		System.out.println("rootPath==="+rootPath);
-		filePath = "D:" + File.separator + "xhFile" + File.separator;
-		backDirectory = "Z";
+		logger.warn("rootPath==="+rootPath);
+		filePath = Constants.filePath+File.separator;
+        backDirectory = Constants.backDirectory;
 		/*
 		swfServer = "http://210.51.3.64:8888/CHPxhFile";
 		swfBackServer = "http://210.51.3.64:8888/BackCHPxhFile";
@@ -61,7 +61,7 @@ public class InitSetupListener implements ServletContextListener {
 		loadAttrInfo();
        logger.debug(rootPath);
 		*/
-		System.out.println("启动---InitSetupListener.contextInitialized()--"+sdf.format(new Date()));
+        logger.warn("启动---InitSetupListener.contextInitialized()--"+sdf.format(new Date()));
 	}
 	
 	/**

@@ -23767,8 +23767,8 @@ UE.plugin.register('autoupload', function (){
                 var link = urlPrefix + data.url,
                     loader = me.document.getElementById(loadingId);
                 if (loader) {
-                    loader.setAttribute('src', link);
-                    loader.setAttribute('_src', link);
+                    loader.setAttribute('src', 'imageLook?fileName='+ link);
+                    loader.setAttribute('_src', 'imageLook?fileName='+ link);
                     loader.setAttribute('title', data.title || '');
                     loader.setAttribute('alt', data.original || '');
                     loader.removeAttribute('id');
@@ -24524,8 +24524,8 @@ UE.plugin.register('simpleupload', function (){
                         link = me.options.imageUrlPrefix + json.url;
                         if(json.state == 'SUCCESS' && json.url) {
                             loader = me.document.getElementById(loadingId);
-                            loader.setAttribute('src', link);
-                            loader.setAttribute('_src', link);
+                            loader.setAttribute('src','imageLook?fileName='+ link);
+                            loader.setAttribute('_src','imageLook?fileName='+ link);
                             loader.setAttribute('title', json.title || '');
                             loader.setAttribute('alt', json.original || '');
                             loader.removeAttribute('id');

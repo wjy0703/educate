@@ -25,7 +25,9 @@ public class Constants {
 	public static final String PDF2SWF_PATH = SysConfig.getInstance().getConfiguration().getString("PDF2SWF_PATH");
 	public static final String OPENOFFICE_HOME = SysConfig.getInstance().getConfiguration().getString("OPENOFFICE_HOME");
 	public static final String OPENOFFICE_PORT = SysConfig.getInstance().getConfiguration().getString("OPENOFFICE_PORT");
-
+	public static final String backDirectory = SysConfig.getInstance().getConfiguration().getString("backDirectory");
+	public static final String filePath = SysConfig.getInstance().getConfiguration().getString("filePath");
+	
 	
 	/**
 	 * 根据属性类型编码，属性键名返回属性值
